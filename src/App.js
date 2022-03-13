@@ -14,6 +14,60 @@ const App=()=> {
   const [past,setPast] = useState(null);
   const [post,setPost] = useState(null);
   const [present,setPresent] = useState(null);
+  let postLen;
+  let pastLen;
+  let presentLen;
+  
+    post && 
+    ( postLen = post.filter(
+    (ride) =>{
+     if (selectedOption){
+       return ride.state === selectedOption
+     }
+     if(selectedOption2){
+       return ride.city === selectedOption2
+     } 
+     else {
+       return ride.state
+     }
+   }
+   ).length)
+  
+
+  
+    past && 
+    ( pastLen = past.filter(
+    (ride) =>{
+     if (selectedOption){
+       return ride.state === selectedOption
+     }
+     if(selectedOption2){
+       return ride.city === selectedOption2
+     } 
+     else {
+       return ride.state
+     }
+   }
+   ).length)
+  
+
+  
+    present && 
+    ( presentLen = present.filter(
+    (ride) =>{
+     if (selectedOption){
+       return ride.state === selectedOption
+     }
+     if(selectedOption2){
+       return ride.city === selectedOption2
+     } 
+     else {
+       return ride.state
+     }
+   }
+   ).length)
+  
+
 
   const handleDate = (date)=>{
     // console.log(date)
@@ -253,23 +307,18 @@ const App=()=> {
     // eslint-disable-next-line
   }, []);
   
-  useEffect(()=>{
-    for(let i=0;i<rides.length;i++){
-      const a = rides[i].station_path;
-      
-    }
-  })
+  // useEffect(()=>{
+  //   for(let i=0;i<rides.length;i++){
+  //     const a = rides[i].station_path;
+
+  //   }
+  // })
 
   return (
     <div style={{background:"#302c2c"}} >
-      {/* <Router>
-        <Switch>
-          <Route path='/past'><Past/></Route>
-        </Switch>
-      </Router> */}
       <div style={{background:"black",color:"white",display:"flex",justifyContent:"space-between",padding:"4px 40px",alignItems:"center"}}>
         <div><h2>Edvora</h2></div>
-        {userData?
+        {userData? 
         <div style={{display:"flex",flexDirection:"row",gap:"20px"}}>
         <p>{userData.name}</p>
         <img style={{width:"40px",height:"40px",margin:"auto 0px",borderRadius:"25px"}} src={userData.url} alt="" />
@@ -281,16 +330,16 @@ const App=()=> {
       </div>
       <div style={{background:"#302c2c",color:"white",display:"flex",justifyContent:"space-between",padding:"4px 40px",alignItems:"center"}}>
         <div style={{display:"flex",flexDirection:"row",gap:"20px"}}>
-          <div style={{cursor:"pointer"}} onClick={()=>setPage(0)}><p>Nearest Rides</p></div>
-          <div style={{cursor:"pointer"}} onClick={()=>setPage(1)}><p>Upcomming Rides</p></div>
-          <div style={{cursor:"pointer"}} onClick={()=>setPage(2)}><p>Past Rides</p></div>
+          <div style={{cursor:"pointer"}} onClick={()=>setPage(0)}><p>Nearest Rides ({presentLen})</p></div>
+          <div style={{cursor:"pointer"}} onClick={()=>setPage(1)}><p>Upcomming Rides ({postLen}) </p></div>
+          <div style={{cursor:"pointer"}} onClick={()=>setPage(2)}><p>Past Rides ({pastLen}) </p></div>
         </div>
-        <div>
+        <div> 
           <div >Filters</div>
           <div onClick={()=>{setIsactive(!isActive)}} className="dropdown" >State</div>
           {isActive && (
             <div className="dropdown-content">
-            {rides && rides.map((ride)=>{
+            {rides && rides.map((ride)=>{ 
               return(
                 <div onClick={()=>{setSelectedOption(ride.state);setIsactive(false);}}>{ride.state}</div>
               )
@@ -299,7 +348,7 @@ const App=()=> {
           )}
           <div onClick={()=>{setIsactive2(!isActive2)}} className="dropdown">City</div>
           {isActive2 && (
-            <div className="dropdown-content">
+            <div className="dropdown-content"> 
             {rides && rides.map((ride)=>{
               return(
                 <div onClick={()=>{setSelectedOption2(ride.city);setIsactive2(false);}}>{ride.city}</div>
@@ -344,7 +393,7 @@ const App=()=> {
          )
        })}
 
-{page===1 && 
+        {page===1 && 
         post && post.filter(
           (ride) =>{
            if (selectedOption){
@@ -355,6 +404,7 @@ const App=()=> {
            } 
            else {
              return ride.state
+             
            }
          }
          ).map((ride)=>{
@@ -378,16 +428,19 @@ const App=()=> {
          )
        })}
 
-{page===2 && 
+        {page===2 && 
         past && past.filter(
           (ride) =>{
+            
            if (selectedOption){
+            
              return ride.state === selectedOption
            }
-           if(selectedOption2){
+           if(selectedOption2){ 
              return ride.city === selectedOption2
            } 
            else {
+            
              return ride.state 
            }
          }
@@ -401,7 +454,7 @@ const App=()=> {
            <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
            <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
            <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
-           <div><p>Distance : <span style={{color:"white"}}>{ride.destination_station_code-ride.origin_station_code}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}></span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
