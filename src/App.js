@@ -372,7 +372,7 @@ const App=()=> {
              return ride.state
            }
          }
-         ).map((ride)=>{
+         ).map((ride,i)=>{
          return (
            <div style={{justifyContent:"space-between", display:"flex",flexDirection:"row",background:"#171717",margin:"5px 35px",padding:"5px 35px",borderRadius:"10px"}}>
              <div style={{display:"flex",flexDirection:"row"}}>
@@ -382,7 +382,7 @@ const App=()=> {
            <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
            <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
            <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
-           <div><p>Distance : <span style={{color:"white"}}>{}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{i}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
@@ -407,7 +407,7 @@ const App=()=> {
              
            }
          }
-         ).map((ride)=>{
+         ).map((ride,i)=>{
          return (
            <div style={{justifyContent:"space-between", display:"flex",flexDirection:"row",background:"#171717",margin:"5px 35px",padding:"5px 35px",borderRadius:"10px"}}>
              <div style={{display:"flex",flexDirection:"row"}}>
@@ -417,7 +417,7 @@ const App=()=> {
            <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
            <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
            <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
-           <div><p>Distance : <span style={{color:"white"}}>{ride.destination_station_code-ride.origin_station_code}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{i}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
@@ -444,7 +444,7 @@ const App=()=> {
              return ride.state 
            }
          }
-         ).map((ride)=>{
+         ).map((ride,i)=>{
          return (
            <div style={{justifyContent:"space-between", display:"flex",flexDirection:"row",background:"#171717",margin:"5px 35px",padding:"5px 35px",borderRadius:"10px"}}>
              <div style={{display:"flex",flexDirection:"row"}}>
@@ -454,7 +454,7 @@ const App=()=> {
            <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
            <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
            <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
-           <div><p>Distance : <span style={{color:"white"}}></span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{i}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
