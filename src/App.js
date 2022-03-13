@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { BrowserRouter as Switch,Router,Route } from "react-router-dom";
 import './App.css';
-// import Past from "./components/Past";
 const App=()=> {
 
   const [userData,setuserData] = useState(null);
@@ -16,13 +14,7 @@ const App=()=> {
   const [past,setPast] = useState(null);
   const [post,setPost] = useState(null);
   const [present,setPresent] = useState(null);
-// useEffect(()=>{
-//   if(rides){
-    
-//   }
-  // console.log(past)
 
-// },[])
   const handleDate = (date)=>{
     // console.log(date)
     // console.log(currDate)
@@ -55,7 +47,7 @@ const App=()=> {
       }
       else{
         return false
-      }
+      } 
     }
     else{
       let year1 = date.substring(6,10);
@@ -69,7 +61,7 @@ const App=()=> {
         let mon2 = currDate.substring(0,2)
         if(parseInt(mon1)<parseInt(mon2)){
           return true
-        }
+        } 
         else if(parseInt(mon1)===parseInt(mon2)){
           let dt1 = date.substring(3,5);
           let dt2 = currDate.substring(3,5);
@@ -273,7 +265,7 @@ const App=()=> {
         {userData?
         <div style={{display:"flex",flexDirection:"row",gap:"20px"}}>
         <p>{userData.name}</p>
-        <img style={{width:"40px",height:"40px",margin:"auto 0px",borderRadius:"25px"}} src={userData.url} alt="profile image" />
+        <img style={{width:"40px",height:"40px",margin:"auto 0px",borderRadius:"25px"}} src={userData.url} alt="" />
       </div>
       :
       <>
@@ -328,13 +320,13 @@ const App=()=> {
          return (
            <div style={{justifyContent:"space-between", display:"flex",flexDirection:"row",background:"#171717",margin:"5px 35px",padding:"5px 35px",borderRadius:"10px"}}>
              <div style={{display:"flex",flexDirection:"row"}}>
-             <div><img style={{width:"296px",height:"153px",borderRadius:"5px",marginLeft: "29px",marginTop: "22px"}} src={ride.map_url} alt="image" /></div>
+             <div><img style={{width:"296px",height:"153px",borderRadius:"5px",marginLeft: "29px",marginTop: "22px"}} src={ride.map_url} alt="" /></div>
          <div style={{color:"#CFCFCF",marginLeft: "29px"}}>
-           <div><p>Ride Id : {ride.id}</p></div>
-           <div><p>Origin Station : {ride.origin_station_code}</p></div>
-           <div><p>station_path : {ride.station_path}</p></div>
-           <div><p>Date : {ride.date}</p></div>
-           <div><p>Distance : 002</p></div>
+         <div><p>Ride Id : <span style={{color:"white"}}>{ride.id}</span> </p></div>
+           <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
+           <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
+           <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{ride.destination_station_code-ride.origin_station_code}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
@@ -362,13 +354,13 @@ const App=()=> {
          return (
            <div style={{justifyContent:"space-between", display:"flex",flexDirection:"row",background:"#171717",margin:"5px 35px",padding:"5px 35px",borderRadius:"10px"}}>
              <div style={{display:"flex",flexDirection:"row"}}>
-             <div><img style={{width:"296px",height:"153px",borderRadius:"5px",marginLeft: "29px",marginTop: "22px"}} src={ride.map_url} alt="image" /></div>
+             <div><img style={{width:"296px",height:"153px",borderRadius:"5px",marginLeft: "29px",marginTop: "22px"}} src={ride.map_url} alt="" /></div>
          <div style={{color:"#CFCFCF",marginLeft: "29px"}}>
-           <div><p>Ride Id : {ride.id}</p></div>
-           <div><p>Origin Station : {ride.origin_station_code}</p></div>
-           <div><p>station_path : {ride.station_path}</p></div>
-           <div><p>Date : {ride.date}</p></div>
-           <div><p>Distance : 002</p></div>
+         <div><p>Ride Id : <span style={{color:"white"}}>{ride.id}</span> </p></div>
+           <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
+           <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
+           <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{ride.destination_station_code-ride.origin_station_code}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
@@ -389,20 +381,20 @@ const App=()=> {
              return ride.city === selectedOption2
            } 
            else {
-             return ride.state
+             return ride.state 
            }
          }
          ).map((ride)=>{
          return (
            <div style={{justifyContent:"space-between", display:"flex",flexDirection:"row",background:"#171717",margin:"5px 35px",padding:"5px 35px",borderRadius:"10px"}}>
              <div style={{display:"flex",flexDirection:"row"}}>
-             <div><img style={{width:"296px",height:"153px",borderRadius:"5px",marginLeft: "29px",marginTop: "22px"}} src={ride.map_url} alt="image" /></div>
+             <div><img style={{width:"296px",height:"153px",borderRadius:"5px",marginLeft: "29px",marginTop: "22px"}} src={ride.map_url} alt="" /></div>
          <div style={{color:"#CFCFCF",marginLeft: "29px"}}>
-           <div><p>Ride Id : {ride.id}</p></div>
-           <div><p>Origin Station : {ride.origin_station_code}</p></div>
-           <div><p>station_path : {ride.station_path}</p></div>
-           <div><p>Date : {ride.date}</p></div>
-           <div><p>Distance : 002</p></div>
+           <div><p>Ride Id : <span style={{color:"white"}}>{ride.id}</span> </p></div>
+           <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
+           <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
+           <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{ride.destination_station_code-ride.origin_station_code}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
