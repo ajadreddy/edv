@@ -247,11 +247,18 @@ const App=()=> {
         setPresent(json.filter((ele)=>
           handlePresent(ele.date)
         ))
-  
+   
     };
     fun();
     // eslint-disable-next-line
   }, []);
+  
+  useEffect(()=>{
+    for(let i=0;i<rides.length;i++){
+      const a = rides[i].station_path;
+      
+    }
+  })
 
   return (
     <div style={{background:"#302c2c"}} >
@@ -326,7 +333,7 @@ const App=()=> {
            <div><p>Origin Station : <span style={{color:"white"}}>{ride.origin_station_code}</span> </p></div>
            <div><p>station_path : <span style={{color:"white"}}>{JSON.stringify(ride.station_path)}</span></p></div>
            <div><p>Date : <span style={{color:"white"}}>{ride.date}</span></p></div>
-           <div><p>Distance : <span style={{color:"white"}}>{ride.destination_station_code-ride.origin_station_code}</span></p></div>
+           <div><p>Distance : <span style={{color:"white"}}>{}</span></p></div>
          </div>
              </div>
          <div style={{display:"flex",flexDirection:"row",color:"white",gap:"20px"}}>
